@@ -28,6 +28,9 @@
 
 ;;; Code:
 
+(require 'helm)
+(require 'js-codemod)
+
 (defvar helm-js-codemod-mod-dir nil "Folder to read mods from.")
 
 (defvar helm-js-codemod--no-mods-msg
@@ -44,7 +47,7 @@
 
 (defun helm-js-codemod--run (mod)
   "Run js-codemod on region, with the full path of the selected `MOD'."
-  (js-codemod/mod-region (concat helm-js-codemod-mod-dir mod)))
+  (js-codemod-mod-region (concat helm-js-codemod-mod-dir mod)))
 
 (defvar helm-js-codemod--source
   (helm-build-async-source "Execute codemod"
