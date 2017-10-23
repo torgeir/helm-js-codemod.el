@@ -55,6 +55,7 @@
     :action #'helm-js-codemod--run)
   "Source to list available mods.")
 
+;;;###autoload
 (defun helm-js-codemod ()
   "`helm-js-codemod' entry point to run codemod on current line or seleted region."
   (interactive)
