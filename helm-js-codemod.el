@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 @torgeir
 
 ;; Author: Torgeir Thoresen <@torgeir>
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; Keywords: helm js codemod region
 ;; Package-Requires: ((emacs "24.4") (helm "1.9.8") (js-codemod "1.0.0"))
 
@@ -28,7 +28,7 @@
 
 ;;; Code:
 
-(require 'helm)
+(require 'helm-core)
 (require 'js-codemod)
 
 (defvar helm-js-codemod-mod-dir nil "Folder to read mods from.")
