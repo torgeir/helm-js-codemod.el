@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 @torgeir
 
 ;; Author: Torgeir Thoresen <@torgeir>
-;; Version: 1.0.2
+;; Version: 1.1.0
 ;; Keywords: helm js codemod region
 ;; Package-Requires: ((emacs "24.4") (helm-core "1.9.8") (js-codemod "1.0.0"))
 
@@ -22,9 +22,10 @@
 
 ;;; Commentary:
 
-;; A helm interface for js-codemod - running mods on current line or selected
-;; region. Run `helm-js-codemod' to list mods in `helm-js-codemod-mod-dir' to
-;; run on the current line or the selected region.
+;; A helm interface for js-codemod - running mods on current sentence or
+;; selected region. Run `helm-js-codemod' to list mods in
+;; `helm-js-codemod-mod-dir' to run on the current sentence or the selected
+;; region.
 
 ;;; Code:
 
@@ -47,11 +48,13 @@
 
 (defun helm-js-codemod--run (mod)
   "Run js-codemod on region, with the full path of the selected `MOD'."
-  (js-codemod-mod-region (concat helm-js-codemod-mod-dir mod)))
+  (js-codemod-mod-region (region-beginning)
+                         (region-end)
+                         (concat helm-js-codemod-mod-dir mod)))
 
 (defvar helm-js-codemod--source
-  (helm-build-async-source "Execute codemod"
-    :candidates-process #'helm-js-codemod--candidates
+  (helm-build-sync-source "Execute codemod"
+    :candidates #'helm-js-codemod--candidates
     :action #'helm-js-codemod--run)
   "Source to list available mods.")
 
