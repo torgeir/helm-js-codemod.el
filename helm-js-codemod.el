@@ -5,7 +5,7 @@
 ;; Author: Torgeir Thoresen <@torgeir>
 ;; Version: 1.1.0
 ;; Keywords: helm js codemod region
-;; Package-Requires: ((emacs "24.4") (helm-core "1.9.8") (js-codemod "1.0.0"))
+;; Package-Requires: ((emacs "24.4") (helm-core "3.6.0") (js-codemod "1.0.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@
 
 ;;; Code:
 
-(require 'helm)
+(require 'helm-core)
 (require 'js-codemod)
 
 (defvar helm-js-codemod-mod-dir nil "Folder to read mods from.")
